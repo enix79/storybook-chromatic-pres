@@ -62,7 +62,7 @@
           <section>
             <h1 class="r-fit-text">Testing Tools</h1>
             <p>Typical Testing Tools:</p>
-            <p>Jest, Testing Library, Vitest, Playwright, Istanbul, Cypress, Webdriver.io, Selenium, happy-dom </p> 
+            <p>Jest, Testing Library, Vitest, Playwright, Istanbul, Cypress, Webdriver.io, Selenium, happy-dom</p>
             <!-- TODO: alle svgs von den testing tools holen? -->
           </section>
           <!-- 3.3 -->
@@ -120,9 +120,9 @@
           </section>
         </section>
         <!-- 5 -->
-         <section>
+        <section>
           <h2>Testing with Storybook</h2>
-         </section>
+        </section>
         <!-- 6 -->
         <section>
           <h2>Storybook at it's core</h2>
@@ -142,7 +142,7 @@
         <section>
           <section>
             <h2 class="r-fit-text">Controls tab</h2>
-            </section>
+          </section>
           <section>
             <h2>Controls Tab</h2>
             <figure>
@@ -175,7 +175,10 @@
             <ul>
               <li>For manual callback tests</li>
               <li>Triggered actions will be logged with their arguments</li>
-              <li>i.e. in React you can set it up with <a href="https://storybook.js.org/docs/essentials/actions#via-storybooktest-fn-spies" target="_blank">spy function fn()</a></li>
+              <li>
+                i.e. in React you can set it up with
+                <a href="https://storybook.js.org/docs/essentials/actions#via-storybooktest-fn-spies" target="_blank">spy function fn()</a>
+              </li>
             </ul>
           </section>
           <!-- 8.2 -->
@@ -218,7 +221,10 @@
           <section>
             <h2>Interactions Tab</h2>
             <img src="assets/images/storybook-interactions-tab.png" alt="storybook interactions panel" style="width: 80%" />
-          <p>Implemented with so-called <a href="https://storybook.js.org/docs/writing-stories/play-function" target="_blank">play functions</a></p>
+            <p>
+              Implemented with so-called
+              <a href="https://storybook.js.org/docs/writing-stories/play-function" target="_blank">play functions</a>
+            </p>
           </section>
           <!-- 9.2 -->
           <section>
@@ -231,14 +237,14 @@
             </ul>
           </section>
           <!-- 9.3-->
-           <section>
-           <h2>Interactions Tab</h2>
-           <pre>
+          <section>
+            <h2>Interactions Tab</h2>
+            <pre>
               <code  data-trim data-noescape data-line-numbers="5-7">
                 import { expect } from 'storybook/test';
                 
                 export const ExampleStory: Story = {
-                  play: async ({ canvas, userEvent }) => {   
+                  play: async ({ canvas, userEvent }) =&gt; {
                     const myButton = canvas.getByRole('button');
                     await userEvent.click(myButton);
                     expect(myButton).toHaveClass('clicked');
@@ -247,32 +253,34 @@
               </code>
             </pre>
             <p>AAA pattern:</p>
-              <ul>
-                <li>Arrange: canvas</li>
-                <li>Act: userEvent</li>
-                <li>Assert: expect</li>
-              </ul>
+            <ul>
+              <li>Arrange: canvas</li>
+              <li>Act: userEvent</li>
+              <li>Assert: expect</li>
+            </ul>
           </section>
-           <!-- 9.4 -->
+          <!-- 9.4 -->
           <section>
             <h2>Interactions Tab</h2>
             <p><b>canvas</b> - all query methods are taken from Testing Library (TL)</p>
             <p><b>userEvent</b> - companion library of TL</p>
-            <p><b>expect</b> - combines methods from vitest + TL (<a href="https://testing-library.com/docs/ecosystem-jest-dom/" target="_blank">jest-dom</a>)</p>
+            <p>
+              <b>expect</b> - combines methods from vitest + TL (<a
+                href="https://testing-library.com/docs/ecosystem-jest-dom/"
+                target="_blank"
+                >jest-dom</a
+              >)
+            </p>
           </section>
           <!-- 9.5 -->
-           <section>
+          <section>
             <h2>Interactions Tab</h2>
             <figure>
-              <img src="assets/images/storybook-addon-test-codegen.gif" alt="storybook addon test codegen" style="width: 75%" />
+              <img src="assets/images/storybook-addon-test-codegen.gif" alt="storybook addon test codegen" style="width: 60%" />
               <figcaption>
-                <a href="https://github.com/igrlk/storybook-addon-test-codegen" target="_blank">
-                  storybook-addon-test-codegen
-                </a> 
-                by 
-                <a href="https://www.linkedin.com/in/igor-luchenkov/" target="_blank">
-                  Igor Luchenkov
-                </a>
+                <a href="https://github.com/igrlk/storybook-addon-test-codegen" target="_blank"> storybook-addon-test-codegen </a>
+                by
+                <a href="https://www.linkedin.com/in/igor-luchenkov/" target="_blank"> Igor Luchenkov </a>
               </figcaption>
             </figure>
           </section>
@@ -304,13 +312,16 @@
             </p>
             <p>Built on top of <a href="https://www.deque.com/axe/axe-core/" target="_blank">Deque's axe-core library</a></p>
             <p>Automatically catches up to 57% of WCAG issues</p>
-            <p><a href="https://storybook.js.org/docs/writing-tests/accessibility-testing#rulesets" target="_blank">Default rulesets</a> can be adjusted (default: WCAG 2.0 + 2.1)</a></p>
+            <p>
+              <a href="https://storybook.js.org/docs/writing-tests/accessibility-testing#rulesets" target="_blank">Default rulesets</a> can
+              be adjusted (default: WCAG 2.0 + 2.1)
+            </p>
             <ul>
               <li>WCAG 2.0 Level A & AA Rules</li>
               <li>WCAG 2.1 Level A & AA Rules</li>
               <li>Best Practices Rules</li>
             </ul>
-            <p> You can enable/disable individual rules as needed.</p>
+            <p>You can enable/disable individual rules as needed.</p>
           </section>
         </section>
         <!-- 11 -->
@@ -322,7 +333,11 @@
           <!-- 11.1. -->
           <section>
             <h2>Vitest addon</h2>
-            <p><a href="https://storybook.js.org/docs/writing-tests/integrations/vitest-addon/index" target="_blank">@storybook/addon-vitest</a></p>
+            <p>
+              <a href="https://storybook.js.org/docs/writing-tests/integrations/vitest-addon/index" target="_blank">
+                @storybook/addon-vitest
+              </a>
+            </p>
             <p>Turns your stories into tests automatically</p>
             <p>Consolidates various testing functionalities into a single addon</p>
             <p>Thin wrapper (Vitest in browser mode with Playwright)</p>
@@ -340,107 +355,263 @@
               <li>Tells you how much of the code is covered (coverage reports)</li>
             </ul>
           </section>
-        <!-- 11.3 -->
-        <section>
-          <h2>Vitest Addon</h2>
-          <figure>
-            <img src="assets/images/storybook-vitest-addon-ui.png" alt="storybook vitest addon ui" style="width: 80%" />  
-            <figcaption>Vitest Addon UI (<a href="https://storybook.js.org/blog/component-test-with-storybook-and-vitest/" target="_blank">Source</a>)</figcaption>
-          </figure>
+          <!-- 11.3 -->
+          <section>
+            <h2>Vitest Addon</h2>
+            <figure>
+              <img src="assets/images/storybook-vitest-addon-ui.png" alt="storybook vitest addon ui" style="width: 80%" />
+              <figcaption>
+                Vitest Addon UI (<a href="https://storybook.js.org/blog/component-test-with-storybook-and-vitest/" target="_blank">Source</a
+                >)
+              </figcaption>
+            </figure>
+          </section>
+          <!-- 11.4 -->
+          <section>
+            <h2>Vitest Addon</h2>
+            <figure>
+              <img src="assets/images/storybook-vitest-addon-ui-running.png" alt="storybook vitest addon ui running" style="width: 80%" />
+              <figcaption>
+                Vitest Addon UI in running state (<a
+                  href="https://storybook.js.org/blog/component-test-with-storybook-and-vitest/"
+                  target="_blank"
+                  >Source</a
+                >)
+              </figcaption>
+            </figure>
+          </section>
+          <!-- 11.5 -->
+          <section>
+            <h2>Vitest Addon</h2>
+            <figure>
+              <img src="assets/images/storybook-vitest-addon-ui-status.png" alt="storybook vitest addon ui status" style="width: 80%" />
+              <figcaption>
+                Vitest Addon UI after a run (<a
+                  href="https://storybook.js.org/blog/component-test-with-storybook-and-vitest/"
+                  target="_blank"
+                  >Source</a
+                >)
+              </figcaption>
+            </figure>
+          </section>
+          <!-- 11.6 -->
+          <section>
+            <h2>Vitest Addon</h2>
+            <figure>
+              <img
+                src="assets/images/storybook-vitest-addon-code-coverage.png"
+                alt="storybook vitest addon code coverage"
+                style="width: 60%"
+              />
+              <figcaption>
+                Vitest Addon: Code coverage report (<a
+                  href="https://storybook.js.org/blog/component-test-with-storybook-and-vitest/"
+                  target="_blank"
+                  >Source</a
+                >)
+              </figcaption>
+            </figure>
+            👉 Watchmode: Re-run test automatically upon file changes
+          </section>
+          <section>
+            <h2>Vitest Addon</h2>
+            <p>
+              Can be automated in your CI/CD pipeline with
+              <a href="https://storybook.js.org/docs/writing-tests/integrations/vitest-addon#cli" target="_blank">CLI</a>
+            </p>
+            <pre>
+              <code data-trim data-noescape>
+                  { 
+                    "scripts": { 
+                      "test": "vitest", 
+                      "test-storybook": "vitest --project=storybook" 
+                    } 
+                  }
+              </code>
+            </pre>
+          </section>
         </section>
-        <!-- 11.4 -->
-        <section>
-          <h2>Vitest Addon</h2>
-          <figure>
-            <img src="assets/images/storybook-vitest-addon-ui-running.png" alt="storybook vitest addon ui running" style="width: 80%" />  
-            <figcaption>Vitest Addon UI in running state (<a href="https://storybook.js.org/blog/component-test-with-storybook-and-vitest/" target="_blank">Source</a>)</figcaption>
-          </figure>
-        </section>
-        <!-- 11.5 -->
-        <section>
-          <h2>Vitest Addon</h2>
-          <figure>
-            <img src="assets/images/storybook-vitest-addon-ui-status.png" alt="storybook vitest addon ui status" style="width: 80%" />  
-            <figcaption>Vitest Addon UI after a run (<a href="https://storybook.js.org/blog/component-test-with-storybook-and-vitest/" target="_blank">Source</a>)</figcaption>
-          </figure>
-        </section>
-        <!-- 11.6 -->
-        <section>
-          <h2>Vitest Addon</h2>
-          <figure>
-            <img src="assets/images/storybook-vitest-addon-code-coverage.png" alt="storybook vitest addon code coverage" style="width: 80%" />  
-            <figcaption>Vitest Addon: Code coverage report (<a href="https://storybook.js.org/blog/component-test-with-storybook-and-vitest/" target="_blank">Source</a>)</figcaption>
-          </figure>
-          👉 Watchmode: Re-run test automatically upon file changes
-        </section>
-        </section>
-        <!-- 12 -->
+        <!-- 12: VISUAL REGRESSION TESTS -->
         <section>
           <section>
             <h2 class="r-fit-text">Visual Regression Tests</h2>
           </section>
           <section>
-            <h2 class="r-fit-text">Visual regression tests</h2>
-            <p>Oftentimes underestimated</p>
-            <p>They give you the confidence you need to ship your code regularly without fear (CI/CD, continuous delivery)</p>
-            <p>regression tests = should prevent you from accidently introducing bugs in your code</p>
-            <p>theoreticall all tests are kind of regression tests - if they turn from red to green</p>
-            <p>but TRUE regression tests tell you not only that something is wrong, but also what exactly</p>
-            <p>regression tests compare in an onbious-way some old state with new state</p>
-            <p>something you know and which is valid is called = baseline</p>
-            <p>they can help greatly reduce the amount of your tests and assertions</p>
-            <p>"A picture says more than a thousand words"</p>
-            <p>two types: visual and DOM</p>
+            <h2>Visual regression tests</h2>
+            <p>Create an image of known valid state (=Baseline)</p>
+            <p>After a change: create another image and compare it with the baseline</p>
+            <p>Uwanted change = regression</p>
+          </section>
+          <section>
+            <h2>Visual regression tests</h2>
+            <figure>
+              <video src="assets/videos/component-visual-testing.mp4" autoplay muted loop style="width: 80%"></video>
+              <figcaption>
+                Visual regression testing in action (<a
+                  href="https://storybook.js.org/docs-assets/10.3/writing-tests/component-visual-testing-optimized.mp4"
+                  target="_blank"
+                >
+                  Source
+                </a>
+                )
+              </figcaption>
+            </figure>
+          </section>
+          <section>
+            <h2>Visual regression tests</h2>
+            <p>often underestimated</p>
+            <p>Main tool in your belt for QA'ing your design system!</p>
+            <p>👉 Gives you confidence to ship your UI without fear</p>
+            <p>👉 Help to greatly reduce the amount of your tests and assertions</p>
           </section>
         </section>
-        <!-- 11 -->
+        <!-- 13: CHROMATIC -->
         <section>
-          <!-- 11.1 -->
+          <!-- 13.0 -->
           <section>
-            <h2 class="r-fit-text">Chromatic</h2>
-            <p>SaaS for visual regression tests by the team behind Storybook - best integration</p>
-            <p>Different mobile browsers (Edge, Safari, Chrome, Firefox)</p>
-            <p>Different modes - mobile, languages, themes</p>
-            <p>A11y Dashboard</p>
-            <p>UI Test & UI Review</p>
-            <p>Free tier -- you can test things first</p>
+            <h2>Chromatic</h2>
           </section>
-          <!-- 11.2 -->
+          <!-- 13.1 -->
           <section>
-            <h3>Chromatic workflow</h3>
-            <p>Chromatic build should usually be triggered in your CI/CD pipeline on push</p>
-            <p>Integrates with your CI/CD pipeline. TODO: image</p>
-            <p>Make the checks mandatory to improve your QA process!</p>
-            <p>Check for regressions. If all of the changes are intentional, approve them.</p>
-            <p>New baselines will be created (the old ones will be overriden)</p>
+            <h2>Chromatic</h2>
+            <p>SaaS for visual regression tests</p>
+            <p>by the team behind Storybook - best integration</p>
+            <p>Covers four main browsers: Chrome, Firefox, Safari, Edge</p>
           </section>
-          <!-- 11.2 -->
+          <!-- 13.2 -->
           <section>
-            <h2 class="r-fit-text">New workflow</h2>
-            <p>Integrate your designers early + take responsibility</p>
-            <p>easier PR review, because you don't have to question the visual aspects</p>
+            <h2>Chromatic</h2>
+            <figure>
+              <video
+                src="assets/videos/chromatic-visual-regression-ui.mp4"
+                alt="Chromatic visual regression testing in action"
+                autoplay
+                muted
+                loop
+                style="width: 70%"
+              ></video>
+              <figcaption>
+                Chromatic visual regression testing in action (
+                <a href="https://www.chromatic.com/" target="_blank"> Source </a>)
+              </figcaption>
+            </figure>
+          </section>
+          <!-- 13.3 -->
+          <section>
+            <h2>Chromatic</h2>
+            <p>
+              <a href="https://www.chromatic.com/docs/modes/#modes-for-testing-themes-viewports-locales--more" target="_blank"> Modes </a>
+              help you to deal with complexity of modern UIs:
+            </p>
+            <ul>
+              <li>themes: light, dark, hight contrast</li>
+              <li>viewports: mobile, tablet, desktop</li>
+              <li>locales: different languages, RTL</li>
+            </ul>
+            <p>You can snapshot all of the permutations you need!</p>
+          </section>
+          <!-- 13.4 -->
+          <section>
+            <h2>Chromatic</h2>
+            <figure>
+              <img src="assets/images/chromatic-ui-review.webp" alt="Chromatic UI review" style="width: 60%" />
+              <figcaption>
+                Chromatic UI review (<a href="https://www.chromatic.com/docs/guide-for-designers/" target="_blank">Source</a>)
+              </figcaption>
+            </figure>
+            <p>👉 Great for reviewing the changes and taking responsibility as designer</p>
+          </section>
+          <!-- 13.5 -->
+          <section>
+            <h2>Chromatic</h2>
+            <p>Chromatic should be integrated into your CI/CD pipeline (CLI) for automation</p>
+            <p>
+              <a href="https://github.com/marketplace/actions/publish-to-chromatic" target="_blank"> chromaui/action</a> for Github Actions
+            </p>
+          </section>
+          <section>
+            <h2>Chromatic</h2>
+            <figure>
+              <img src="assets/images/chromatic-pipeline-checks.png" alt="chromatic pipeline checks" style="width: 80%" />
+              <figcaption>Chromatic checks in CI/CD pipeline</figcaption>
+            </figure>
+            <p>Trigger builds on push/PR creation automatically</p>
+            <p>Make the checks mandatory</p>
           </section>
         </section>
-        <!-- 12-->
+        <!-- 14: CHROMATIC STORYBOOK ADDON -->
         <section>
-          <h2 class="r-fit-text">The workflow</h2>
+          <!-- 14.0-->
           <section>
-            <h3>Putting in all together</h3>
-            <ol>
-              <li>
-                Align with your designers early. Decide on the so called component API: Component Name, property names, property values,
-                default values, prop types
-              </li>
-              <li>Try to also align on stories you will have on both sides</li>
-              <li>Wait for the design to be finalized</li>
-              <li>
-                Implent the component: Use storybook testing suite to create a bullet proof implementation: unit tests, ally automatically,
-                interaction tests
-              </li>
-              <li>Let Chromatic run visual regression tests and review the results</li>
-              <li>Ship your code with confidence and sleep well at night :)</li>
-            </ol>
+            <h2>Chromatic Storybook Addon</h2>
           </section>
+          <!-- 14.1 -->
+          <section>
+            <h2>Chromatic Storybook Addon</h2>
+            <p><a href="https://storybook.js.org/docs/writing-tests/visual-testing" target="_blank">@chromatic-com/storybook</a></p>
+            <ul>
+              <li>Shift-lefts visual testing into your local development</li>
+              <li>Can be used to see regressions early and often</li>
+              <li>Great for "step-by-step" implementations (between commits)</li>
+              <li>Fully integrates in Storybook and vitest addon</li>
+              <li>Accept/Reject changes directly in Storybook</li>
+            </ul>
+          </section>
+          <!-- 14.2 -->
+          <section>
+            <h2>Chromatic Storybook Addon</h2>
+            <figure>
+              <img src="assets/images/storybook-visual-tests-tab.png" alt="storybook visual tests tab" style="width: 60%" />
+              <figcaption>
+                Storybook's "Visual tests" tab (<a
+                  href="https://storybook.js.org/docs/writing-tests/visual-testing#chromatic-storybook-addon"
+                  target="_blank"
+                >
+                  Source </a
+                >)
+              </figcaption>
+            </figure>
+          </section>
+          <!-- 14.3 -->
+          <section>
+            <h2>Chromatic Storybook Addon</h2>
+            <figure>
+              <img
+                src="assets/images/storybook-vitest-addon-ui-with-visual-tests.png"
+                alt="storybook vitest addon ui with marked visual tests"
+                style="width: 80%"
+              />
+              <figcaption>
+                Storybook's vitest addon UI with marked visual tests (<a
+                  href="https://storybook.js.org/docs/writing-tests/visual-testing"
+                  target="_blank"
+                >
+                  Source </a
+                >)
+              </figcaption>
+            </figure>
+          </section>
+        </section>
+        <!-- 15: RESOURCES-->
+        <section>
+          <h2>Resources</h2>
+          <ul>
+            <li><a href="https://storybook.js.org/docs" target="_blank">Storybook - Official Docs</a></li>
+            <li><a href="https://www.chromatic.com/docs" target="_blank">Chromatic - Official Docs</a></li>
+            <li><a href="https://www.youtube.com/watch?v=8t5wxrFpCQY" target="_blank">Component Testing with Storybook and Vitest</a></li>
+            <li><a href="https://youtu.be/oyV8cFHzJRM?is=-9Xn7blT_nWgDPtV" target="_blank">Frontend Testing from Dev to Prod</a></li>
+            <li><a href="https://www.youtube.com/watch?v=ipX9VIj9QEs" target="_blank">Frontend Testing Stack</a></li>
+          </ul>
+        </section>
+        <!-- 16: SUMMARY -->
+        <section>
+          <h2>Summary</h2>
+          <p>👉 Take responsibility for your product and build a test suite</p>
+          <p>👉 Shift-left whenever possible</p>
+          <p><u>How?</u> Where CLI, there automation!</p>
+          <p><u>What?</u> vitest addon + chromatic</p>
+          <p><u>Where?</u> Git hooks + CI/CD pipeline</p>
+          <p></p>
         </section>
       </div>
     </div>
