@@ -1,13 +1,448 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Parcel Vanilla App</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
+    <script rel="preload" type="module" src="index.js"></script>
   </head>
   <body>
-    <h1>Parcel Vanilla App</h1>
-    <p>Edit <code>src/index.html</code> to get started!</p>
+    <div class="reveal">
+      <div class="slides">
+        <!-- 0 -->
+        <section>
+          <h1 class="r-fit-text">Beyond the Sandbox</h1>
+          <p class="r-fit-text">Building a Bulletproof Testing Suite with Storybook & Chromatic</p>
+        </section>
+        <!-- 1 -->
+        <section>
+          <h2 class="r-fit-text">Main Storybook use cases</h2>
+          <ul>
+            <li>Isolated development</li>
+            <li>Documentation</li>
+            <li>Testing</li>
+          </ul>
+        </section>
+        <!-- 2 -->
+        <section>
+          <h1 class="r-fit-text">Tests: Untapped potential</h1>
+          <p>Storybook can do a lot more for you regarding testing:</p>
+          <ul>
+            <li>It cleverly integrates with the testing tools you know and love</li>
+            <li>One UI as entrance point for all of your tools</li>
+            <li>It can help you create comprehensive and reliable test suite</li>
+          </ul>
+        </section>
+        <!-- 3-->
+        <section>
+          <!-- 3.0 -->
+          <section>
+            <h1 class="r-fit-text">Recap: Testing</h1>
+          </section>
+          <!-- 3.1 -->
+          <section>
+            <h1 class="r-fit-text">Testing Pyramid</h1>
+            <figure>
+              <img
+                class="r-stretch"
+                src="assets/images/traditional-testing-pyramide.png"
+                alt="traditional testing pyramide"
+                style="width: 60%"
+              />
+              <figcaption>
+                Source:
+                <a href="https://testrigor.com/blog/what-is-the-inverted-testing-pyramid/" target="_blank"
+                  >https://testrigor.com/blog/what-is-the-inverted-testing-pyramid/</a
+                >
+              </figcaption>
+            </figure>
+          </section>
+          <!-- 3.2 -->
+          <section>
+            <h1 class="r-fit-text">Testing Tools</h1>
+            <p>Typical Testing Tools:</p>
+            <p>Jest, Testing Library, Vitest, Playwright, Istanbul, Cypress, Webdriver.io, Selenium, happy-dom </p> 
+            <!-- TODO: alle svgs von den testing tools holen? -->
+          </section>
+          <!-- 3.3 -->
+          <section>
+            <h1 class="r-fit-text">Why it's a pyramid?</h1>
+            <p>Tests at the bottom are cheap and fast - we can and should create a lot of them</p>
+            <p>Often tradeoffs: precision vs velocity</p>
+            <p>The more we move up, the more expensive and slow they become</p>
+          </section>
+        </section>
+        <!-- 4 -->
+        <section>
+          <section>
+            <h2>Shift-Lefting</h2>
+          </section>
+          <section>
+            <figure>
+              <img
+                src="assets/images/software-bug-costs.png"
+                alt="The costs of a software bug related to its position in the SDLC"
+                style="width: 70%"
+              />
+              <figcaption>
+                The costs of a software bug related to its position in the Software Development Life Cycle. (<a
+                  href="https://ten10.com/blog/how-much-are-software-bugs-costing-you/"
+                  target="_blank"
+                  >Source</a
+                >)
+              </figcaption>
+            </figure>
+          </section>
+          <section>
+            <h3>What is shift-lefting and why should we do this?</h3>
+            <figure>
+              <img src="assets/images/shift-lefting.png" alt="Shift lefting in software development" style="width: 70%" />
+              <figcaption>
+                Shift lefting in software development. (<a href="https://www.apriorit.com/qa-blog/qa-shift-left-testing" target="_blank"
+                  >Source</a
+                >)
+              </figcaption>
+            </figure>
+            <p>Shift-lefting - doing or considering things earlier in the process, not in the end</p>
+            <p>"A good plan is half the battle"</p>
+            <!-- <p>Tests - QA activities - anything</p>
+            <p>accessible right from the beginning</p> -->
+          </section>
+          <section>
+            <h3>Advantages of shift-left approach</h3>
+            <ul>
+              <li>Identify issues/bugs early</li>
+              <li>Reduce development costs</li>
+              <li>Improve product quality</li>
+              <li>Prevent technical debt ("we will fix it later")</li>
+            </ul>
+          </section>
+        </section>
+        <!-- 5 -->
+         <section>
+          <h2>Testing with Storybook</h2>
+         </section>
+        <!-- 6 -->
+        <section>
+          <h2>Storybook at it's core</h2>
+          <p>Story = interesting specific state of a component</p>
+          <p>It's kind of a test already!</p>
+          <p>
+            Component is not only an atomic unit, you can and should compose everything bottom-up until the page level (<a
+              href="https://componentdriven.org/"
+              target="_blank"
+              >component-driven development</a
+            >)
+          </p>
+          <p style="padding-top: 1em">Storybook is <u>addon-based</u></p>
+          <img src="assets/images/storybook-addons-panel.png" alt="storybook addons panel" style="width: 100%" />
+        </section>
+        <!-- 7: CONTROLS TAB -->
+        <section>
+          <section>
+            <h2 class="r-fit-text">Controls tab</h2>
+            </section>
+          <section>
+            <h2>Controls Tab</h2>
+            <figure>
+              <img class="r-stretch" src="assets/images/storybook-controls-panel.png" alt="storybook controls" style="width: 70%" />
+              <figcaption>
+                Example of component properties in the
+                <a href="https://storybook.js.org/docs/react/essentials/controls" target="_blank">controls tab</a>.
+              </figcaption>
+            </figure>
+          </section>
+          <section>
+            <h2>Controls Tab</h2>
+            <ul>
+              <li>For manual, explorative tests</li>
+              <li>Create a story if you find something interesting</li>
+              <li>Don't forget the edge cases!</li>
+              <li>Show and setup all of the properties</li>
+              <li>Right controls for each property</li>
+            </ul>
+          </section>
+        </section>
+        <!-- 8: ACTIONS TAB -->
+        <section>
+          <section>
+            <h2 class="r-fit-text">Actions tab</h2>
+          </section>
+          <!-- 8.1 -->
+          <section>
+            <h2>Actions tab</h2>
+            <ul>
+              <li>For manual callback tests</li>
+              <li>Triggered actions will be logged with their arguments</li>
+              <li>i.e. in React you can set it up with <a href="https://storybook.js.org/docs/essentials/actions#via-storybooktest-fn-spies" target="_blank">spy function fn()</a></li>
+            </ul>
+          </section>
+          <!-- 8.2 -->
+          <section>
+            <h2>Actions tab</h2>
+            <pre>
+              <code  data-trim data-noescape data-line-numbers="1,6">
+                import { fn } from 'storybook/test';
+                ...
+                const meta = {
+                  ...
+                  args: { 
+                    onClick: fn() 
+                    ...
+                  },
+                };
+              </code>
+            </pre>
+          </section>
+          <!-- 8.3 -->
+          <section>
+            <h2>Actions tab</h2>
+            <figure>
+              <img class="r-stretch" src="assets/images/storybook-actions-panel.png" alt="storybook actions panel" style="width: 80%" />
+              <figcaption>
+                Example of the spy function feedback in the
+                <a href="https://storybook.js.org/docs/react/essentials/actions" target="_blank">actions tab</a>.
+              </figcaption>
+            </figure>
+            👉 Feedback upon triggering the spy function
+          </section>
+        </section>
+        <!-- 9: INTERACTIONS TAB-->
+        <section>
+          <!-- 9.0 -->
+          <section>
+            <h2 class="r-fit-text">Interactions Tab</h2>
+          </section>
+          <!-- 9.1 -->
+          <section>
+            <h2>Interactions Tab</h2>
+            <img src="assets/images/storybook-interactions-tab.png" alt="storybook interactions panel" style="width: 80%" />
+          <p>Implemented with so-called <a href="https://storybook.js.org/docs/writing-stories/play-function" target="_blank">play functions</a></p>
+          </section>
+          <!-- 9.2 -->
+          <section>
+            <h2>Interactions Tab</h2>
+            <ul>
+              <li>Mainly for interaction tests, but very flexible</li>
+              <li>Callback tests</li>
+              <li>Accessibility tests</li>
+              <li>Checking DOM structure</li>
+            </ul>
+          </section>
+          <!-- 9.3-->
+           <section>
+           <h2>Interactions Tab</h2>
+           <pre>
+              <code  data-trim data-noescape data-line-numbers="5-7">
+                import { expect } from 'storybook/test';
+                
+                export const ExampleStory: Story = {
+                  play: async ({ canvas, userEvent }) => {   
+                    const myButton = canvas.getByRole('button');
+                    await userEvent.click(myButton);
+                    expect(myButton).toHaveClass('clicked');
+                  },
+                };
+              </code>
+            </pre>
+            <p>AAA pattern:</p>
+              <ul>
+                <li>Arrange: canvas</li>
+                <li>Act: userEvent</li>
+                <li>Assert: expect</li>
+              </ul>
+          </section>
+           <!-- 9.4 -->
+          <section>
+            <h2>Interactions Tab</h2>
+            <p><b>canvas</b> - all query methods are taken from Testing Library (TL)</p>
+            <p><b>userEvent</b> - companion library of TL</p>
+            <p><b>expect</b> - combines methods from vitest + TL (<a href="https://testing-library.com/docs/ecosystem-jest-dom/" target="_blank">jest-dom</a>)</p>
+          </section>
+          <!-- 9.5 -->
+           <section>
+            <h2>Interactions Tab</h2>
+            <figure>
+              <img src="assets/images/storybook-addon-test-codegen.gif" alt="storybook addon test codegen" style="width: 75%" />
+              <figcaption>
+                <a href="https://github.com/igrlk/storybook-addon-test-codegen" target="_blank">
+                  storybook-addon-test-codegen
+                </a> 
+                by 
+                <a href="https://www.linkedin.com/in/igor-luchenkov/" target="_blank">
+                  Igor Luchenkov
+                </a>
+              </figcaption>
+            </figure>
+          </section>
+        </section>
+        <!-- 10: ACCESSIBILITY TAB -->
+        <section>
+          <section>
+            <h2 class="r-fit-text">Accessibility Tab</h2>
+          </section>
+          <section>
+            <h2>Accessibility Tab</h2>
+            <figure>
+              <img
+                class="r-stretch"
+                src="assets/images/storybook-accessibility-panel.png"
+                alt="storybook accessibility panel"
+                style="width: 90%"
+              />
+              <figcaption>
+                Example of the accessibility feedback in the
+                <a href="https://storybook.js.org/docs/react/essentials/accessibility" target="_blank">a11y tab</a>.
+              </figcaption>
+            </figure>
+          </section>
+          <section>
+            <h2>Accessibility Tests</h2>
+            <p>
+              <a href="https://storybook.js.org/docs/writing-tests/accessibility-testing" target="_blank"> Storybook a11y addon </a>
+            </p>
+            <p>Built on top of <a href="https://www.deque.com/axe/axe-core/" target="_blank">Deque's axe-core library</a></p>
+            <p>Automatically catches up to 57% of WCAG issues</p>
+            <p><a href="https://storybook.js.org/docs/writing-tests/accessibility-testing#rulesets" target="_blank">Default rulesets</a> can be adjusted (default: WCAG 2.0 + 2.1)</a></p>
+            <ul>
+              <li>WCAG 2.0 Level A & AA Rules</li>
+              <li>WCAG 2.1 Level A & AA Rules</li>
+              <li>Best Practices Rules</li>
+            </ul>
+            <p> You can enable/disable individual rules as needed.</p>
+          </section>
+        </section>
+        <!-- 11 -->
+        <section>
+          <!-- 11.0 -->
+          <section>
+            <h2>Putting it all together: Vitest addon</h2>
+          </section>
+          <!-- 11.1. -->
+          <section>
+            <h2>Vitest addon</h2>
+            <p><a href="https://storybook.js.org/docs/writing-tests/integrations/vitest-addon/index" target="_blank">@storybook/addon-vitest</a></p>
+            <p>Turns your stories into tests automatically</p>
+            <p>Consolidates various testing functionalities into a single addon</p>
+            <p>Thin wrapper (Vitest in browser mode with Playwright)</p>
+            <p>Real browser env instead of jsdom/happydom</p>
+            <p>Dedicated UI in Storybook + CLI</p>
+          </section>
+          <!-- 11.2 -->
+          <section>
+            <h2>Vitest addon</h2>
+            <ul>
+              <li>Checks if a story can be rendered (smoke test)</li>
+              <li>Executes play functions (interaction tests)</li>
+              <li>Runs a11y addon (accessibility tests)</li>
+              <li>Creates visual snapshots (visual tests)</li>
+              <li>Tells you how much of the code is covered (coverage reports)</li>
+            </ul>
+          </section>
+        <!-- 11.3 -->
+        <section>
+          <h2>Vitest Addon</h2>
+          <figure>
+            <img src="assets/images/storybook-vitest-addon-ui.png" alt="storybook vitest addon ui" style="width: 80%" />  
+            <figcaption>Vitest Addon UI (<a href="https://storybook.js.org/blog/component-test-with-storybook-and-vitest/" target="_blank">Source</a>)</figcaption>
+          </figure>
+        </section>
+        <!-- 11.4 -->
+        <section>
+          <h2>Vitest Addon</h2>
+          <figure>
+            <img src="assets/images/storybook-vitest-addon-ui-running.png" alt="storybook vitest addon ui running" style="width: 80%" />  
+            <figcaption>Vitest Addon UI in running state (<a href="https://storybook.js.org/blog/component-test-with-storybook-and-vitest/" target="_blank">Source</a>)</figcaption>
+          </figure>
+        </section>
+        <!-- 11.5 -->
+        <section>
+          <h2>Vitest Addon</h2>
+          <figure>
+            <img src="assets/images/storybook-vitest-addon-ui-status.png" alt="storybook vitest addon ui status" style="width: 80%" />  
+            <figcaption>Vitest Addon UI after a run (<a href="https://storybook.js.org/blog/component-test-with-storybook-and-vitest/" target="_blank">Source</a>)</figcaption>
+          </figure>
+        </section>
+        <!-- 11.6 -->
+        <section>
+          <h2>Vitest Addon</h2>
+          <figure>
+            <img src="assets/images/storybook-vitest-addon-code-coverage.png" alt="storybook vitest addon code coverage" style="width: 80%" />  
+            <figcaption>Vitest Addon: Code coverage report (<a href="https://storybook.js.org/blog/component-test-with-storybook-and-vitest/" target="_blank">Source</a>)</figcaption>
+          </figure>
+          👉 Watchmode: Re-run test automatically upon file changes
+        </section>
+        </section>
+        <!-- 12 -->
+        <section>
+          <section>
+            <h2 class="r-fit-text">Visual Regression Tests</h2>
+          </section>
+          <section>
+            <h2 class="r-fit-text">Visual regression tests</h2>
+            <p>Oftentimes underestimated</p>
+            <p>They give you the confidence you need to ship your code regularly without fear (CI/CD, continuous delivery)</p>
+            <p>regression tests = should prevent you from accidently introducing bugs in your code</p>
+            <p>theoreticall all tests are kind of regression tests - if they turn from red to green</p>
+            <p>but TRUE regression tests tell you not only that something is wrong, but also what exactly</p>
+            <p>regression tests compare in an onbious-way some old state with new state</p>
+            <p>something you know and which is valid is called = baseline</p>
+            <p>they can help greatly reduce the amount of your tests and assertions</p>
+            <p>"A picture says more than a thousand words"</p>
+            <p>two types: visual and DOM</p>
+          </section>
+        </section>
+        <!-- 11 -->
+        <section>
+          <!-- 11.1 -->
+          <section>
+            <h2 class="r-fit-text">Chromatic</h2>
+            <p>SaaS for visual regression tests by the team behind Storybook - best integration</p>
+            <p>Different mobile browsers (Edge, Safari, Chrome, Firefox)</p>
+            <p>Different modes - mobile, languages, themes</p>
+            <p>A11y Dashboard</p>
+            <p>UI Test & UI Review</p>
+            <p>Free tier -- you can test things first</p>
+          </section>
+          <!-- 11.2 -->
+          <section>
+            <h3>Chromatic workflow</h3>
+            <p>Chromatic build should usually be triggered in your CI/CD pipeline on push</p>
+            <p>Integrates with your CI/CD pipeline. TODO: image</p>
+            <p>Make the checks mandatory to improve your QA process!</p>
+            <p>Check for regressions. If all of the changes are intentional, approve them.</p>
+            <p>New baselines will be created (the old ones will be overriden)</p>
+          </section>
+          <!-- 11.2 -->
+          <section>
+            <h2 class="r-fit-text">New workflow</h2>
+            <p>Integrate your designers early + take responsibility</p>
+            <p>easier PR review, because you don't have to question the visual aspects</p>
+          </section>
+        </section>
+        <!-- 12-->
+        <section>
+          <h2 class="r-fit-text">The workflow</h2>
+          <section>
+            <h3>Putting in all together</h3>
+            <ol>
+              <li>
+                Align with your designers early. Decide on the so called component API: Component Name, property names, property values,
+                default values, prop types
+              </li>
+              <li>Try to also align on stories you will have on both sides</li>
+              <li>Wait for the design to be finalized</li>
+              <li>
+                Implent the component: Use storybook testing suite to create a bullet proof implementation: unit tests, ally automatically,
+                interaction tests
+              </li>
+              <li>Let Chromatic run visual regression tests and review the results</li>
+              <li>Ship your code with confidence and sleep well at night :)</li>
+            </ol>
+          </section>
+        </section>
+      </div>
+    </div>
   </body>
 </html>

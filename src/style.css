@@ -1,8 +1,18 @@
-html {
-  color-scheme: light dark;
-  font-family: system-ui;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
+figcaption {
+  font-size: 0.6em;
+  color: #b9bbc6;
+}
+
+/* replace unordered list items dots through emojicon arrow */
+body .reveal ul {
+  list-style: none;
+}
+body .reveal ul li::before {
+  content: '👉';
+  margin-right: 0.5em;
+}
+
+/* nested unordered list items should get an arrow, not finger */
+body .reveal ul ul li::before {
+  content: '➡️';
 }
