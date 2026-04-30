@@ -1,12 +1,12 @@
 import Reveal from 'reveal.js';
+import { inject } from '@vercel/analytics';
 
 import 'reveal.js/dist/reveal.css';
 import 'reveal.js/dist/theme/black.css';
 import 'reveal.js/dist/plugin/highlight/monokai.css';
-// import hljs from 'highlight.js';
-// import javascript from 'highlight.js/lib/languages/javascript';
-// hljs.registerLanguage('javascript', javascript);
 import RevealHighlight from 'reveal.js/dist/plugin/highlight';
+
+inject();
 
 Reveal.initialize({
   plugins: [RevealHighlight],
