@@ -476,7 +476,7 @@
             <h2>Chromatic</h2>
             <p>SaaS for visual regression tests</p>
             <p>by the team behind Storybook - best integration</p>
-            <p>Covers four main browsers: Chrome, Firefox, Safari, Edge</p>
+            <p>covers four main browsers: Chrome, Firefox, Safari, Edge</p>
           </section>
           <!-- 13.2 -->
           <section>
@@ -524,10 +524,13 @@
           <!-- 13.5 -->
           <section>
             <h2>Chromatic</h2>
-            <p>Chromatic should be integrated into your CI/CD pipeline (CLI) for automation</p>
-            <p>
-              <a href="https://github.com/marketplace/actions/publish-to-chromatic" target="_blank"> chromaui/action</a> for Github Actions
-            </p>
+            <p>Chromatic should be integrated into your CI/CD pipeline (CLI) for automation:</p>
+            <ul>
+              <li><a href="https://www.chromatic.com/docs/cli/" target="_blank">Chromatic CLI</a></li>
+              <li>
+                <a href="https://github.com/marketplace/actions/publish-to-chromatic" target="_blank">chromaui/action</a> for Github Actions
+              </li>
+            </ul>
           </section>
           <section>
             <h2>Chromatic</h2>
@@ -592,7 +595,29 @@
             </figure>
           </section>
         </section>
-        <!-- 15: RESOURCES-->
+        <!-- 15: CI/CD PIPELINE-->
+        <section>
+          <h2>CI/CD Pipeline</h2>
+          <p>Should be last check point for your QA activities</p>
+          <p>Test as much as possible and it them mandatory</p>
+          <p>
+            👉 Build app, build storybook, lint, format, check typescript, secrets/vulnerabilities, all tests, Chromatic's UI Review/Tests,
+            bundle size, etc.
+          </p>
+        </section>
+        <!-- 16: GIT HOOKS -->
+        <section>
+          <h2>Git Hooks</h2>
+          <p>
+            <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks" target="_blank">Git hooks</a> +
+            <a href="https://typicode.github.io/husky/#/" target="_blank">husky</a>
+          </p>
+          <p>Run your tests before certain git events like commit or push</p>
+          <p>Shift-left your tests even more - earlier feedback, less bugs</p>
+          <p>Either supplements or even replaces CI/CD checks - less pipeline costs</p>
+          <p>Oftentimes a tradeoff - Hooks shouldn't run for too long</p>
+        </section>
+        <!-- 17: RESOURCES-->
         <section>
           <h2>Resources</h2>
           <ul>
@@ -603,7 +628,7 @@
             <li><a href="https://www.youtube.com/watch?v=ipX9VIj9QEs" target="_blank">Frontend Testing Stack</a></li>
           </ul>
         </section>
-        <!-- 16: SUMMARY -->
+        <!-- 18: SUMMARY -->
         <section>
           <h2>Summary</h2>
           <p>👉 Take responsibility for your product and build a test suite</p>
